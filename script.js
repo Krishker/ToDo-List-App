@@ -1,5 +1,6 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
+const displayDate= new Date("2026-06-19");
 
 function addTask()
 {
@@ -39,6 +40,13 @@ function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
 showTask();
+
+function showDate() {
+    document.getElementById("time").innerHTML = displayDate;
+}
+showDate();
+
+
         /* 
         function validateInput() {
             if (inputBox.value.length > 2) {
