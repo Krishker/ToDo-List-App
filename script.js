@@ -1,7 +1,9 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
 const containerTime = document.getElementById("time");
-const displayDate = new Date("2026-06-19");
+const displayDate = new Date().toLocaleString("en-GB", {
+    timeZone: "Africa/Lagos"
+});
 
 
 function addTask()
