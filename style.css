@@ -10,6 +10,7 @@
     min-height: 100vh;
     background: linear-gradient(135deg, #153677, #4e085f);
     padding: 10px;
+    flex-direction: column;
 }
 
 .todo-app{
@@ -19,6 +20,7 @@
     margin: 100px auto 20px;
     padding: 40px 30px 70px;
     border-radius: 10px;
+    
 }
 
 .todo-app h2 img{
@@ -42,7 +44,8 @@ input{
     outline:none;
     background: transparent;
     padding: 10px;
-    font-weight: 14px;   
+    font-weight: 14px; 
+
 }
 
 button{
@@ -60,10 +63,12 @@ button{
 ul li {
     list-style: none;
     font-size: 17px;
-    padding: 12px 8px 12px 50px;
+    padding: 12px 60px 12px 50px;
     user-select: none;
     cursor: pointer;
-    position:relative;
+    position: relative;
+    overflow-wrap: break-word;
+    
 }
 
 ul li::before{
@@ -77,16 +82,22 @@ ul li::before{
     background-position:center;
     top: 8px;
     left: 4%;
+    
+     
 }
 
 ul li.checked{
     color:#555;
     text-decoration: line-through;
+   
+  
 
 }
 
 ul li.checked::before{
     background-image: url(images/checked.png);
+    
+   
 
 }
 
@@ -100,25 +111,31 @@ ul li span{
     color: #555;
     line-height: 40px;
     text-align: center;
+    word-wrap: break-word;
+    box-sizing: border-box;
+    
+
 }
 
 ul li span:hover{
     background: #edeef0;
+    
 }
 
 #time {
     display: inline-block;
     padding: 15px 10px;
-    margin: 20px;
-    background: #1e293b;
-    color: #38bdf8;
+    margin: 10px;
+    margin-left: 3%;
+    color: #555;
     font-size: 0.6rem;
-    font-weight: bold;
+    font-weight: 0.95rem;
     font-family: 'Courier New', monospace;
-    border: 1.4px solid #38bdf8;
-    border-radius: 15px;
+    border: 1.4px  #38bdf8;
+    border-radius: 8px;
     box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
     text-align: center;
+    margin-top: 70px;
     
 }
 

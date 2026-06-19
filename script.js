@@ -1,12 +1,21 @@
 const inputBox = document.getElementById("input-box");
 const listContainer = document.getElementById("list-container");
-const displayDate= new Date("2026-06-19");
+const containerTime = document.getElementById("time");
+const displayDate = new Date("2026-06-19");
+
 
 function addTask()
 {
     if (inputBox.value === '') {
-       alert("You must write something");        
+        alert("You must write something"); 
+        return; 
     }
+    if (inputBox.value.length > 58)
+       {
+        alert("Task cannot exceed 100 characters. Please shorten it .. !!! ");
+        inputBox.value = "";
+        return;
+       }
     else {
        let li = document.createElement("li");
        li.innerHTML = inputBox.value;
@@ -42,9 +51,55 @@ function showTask() {
 showTask();
 
 function showDate() {
-    document.getElementById("time").innerHTML = displayDate;
+
+      document.getElementById("time").innerHTML = displayDate;        
+    
 }
-showDate();
+
+
+function toggleTimeVisibility() {
+    const isEmpty = listContainer.innerHTML.trim() === "";
+    containerTime.style.display = isEmpty ? "none" : "block";
+
+    if (!isEmpty) { showDate(); }
+}
+
+
+const observer = new MutationObserver(function () {
+    toggleTimeVisibility();
+});
+
+//start observing
+observer.observe(listContainer, {
+    childList: true, //watch for added/remove children
+    subtree: true,
+    characterData: true
+});
+
+toggleTimeVisibility();
+
+
+//check char limit
+
+/*function checkChar() {
+    
+    if (inputBox.value.Length > 100)
+    {
+        alert("Task cannot exceed 100 characters. Please shorten it .. !!! ");
+    }
+    return;
+}
+checkChar();
+
+
+
+
+
+
+
+
+
+
 
 
         /* 
