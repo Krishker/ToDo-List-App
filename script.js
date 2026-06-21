@@ -12,9 +12,9 @@ function addTask()
         alert("You must write something"); 
         return; 
     }
-    if (inputBox.value.length > 58)
+    if (inputBox.value.length > 60)
        {
-        alert("Task cannot exceed 100 characters. Please shorten it .. !!! ");
+        alert("Task cannot exceed 60 characters. Please shorten it .. !!! ");
         inputBox.value = "";
         return;
        }
