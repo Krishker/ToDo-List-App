@@ -48,7 +48,19 @@ input{
 
 }
 
-button{
+/*button{
+
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px;
+}*/
+
+#click{
 
     border: none;
     outline: none;
@@ -59,6 +71,12 @@ button{
     cursor: pointer;
     border-radius: 40px;
 }
+        
+#click:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+    opacity: 0.5;
+        }
 
 ul li {
     list-style: none;
@@ -138,4 +156,5 @@ ul li span:hover{
     margin-top: 70px;
     
 }
+
 

@@ -4,14 +4,30 @@ const containerTime = document.getElementById("time");
 const displayDate = new Date().toLocaleString("en-GB", {
     timeZone: "Africa/Lagos"
 });
+const clickButton = document.getElementById("click");
 
+// Function to check input and toggle button state
+function checkInput() {
+    if (inputBox.value.trim() === '') {
+        clickButton.disabled = true;
+    } else {
+        clickButton.disabled = false;
+    }
+}
 
 function addTask()
 {
+    if (inputBox.value.trim() === '') {
+        return; // This is now redundant but keep for safety
+    }
+
+    
     if (inputBox.value === '') {
         alert("You must write something"); 
         return; 
     }
+
+    //check char limit
     if (inputBox.value.length > 60)
        {
         alert("Task cannot exceed 60 characters. Please shorten it .. !!! ");
@@ -27,9 +43,16 @@ function addTask()
        li.appendChild(span);
     }
     inputBox.value = "";
+    checkInput(); // Re-check after clearing
     saveData();
 
+
 }
+
+  // Add event listeners
+    inputBox.addEventListener('input', checkInput);
+// Initialize button state on page load
+     checkInput();
 
 listContainer.addEventListener("click", function (e) {
     
@@ -81,35 +104,8 @@ observer.observe(listContainer, {
 toggleTimeVisibility();
 
 
-//check char limit
 
-/*function checkChar() {
     
-    if (inputBox.value.Length > 100)
-    {
-        alert("Task cannot exceed 100 characters. Please shorten it .. !!! ");
-    }
-    return;
-}
-checkChar();
-
-
-
-
-
-
-
-
-
-
-
-
-        /* 
-        function validateInput() {
-            if (inputBox.value.length > 2) {
-                inputBox.disabled = false;
-            }
-        } */
 
 
 
